@@ -1,13 +1,6 @@
 pipeline {
     agent any
 	stages {
-    	stage('Build') {
-        	steps {
-            	nodejs('nodejs'){
-                		sh 'npm install'
-            	}
-        	}
-        }
         stage('Dependency'){
             steps{
                     withCredentials([string(credentialsId: 'NVD-API-KEY', variable: 'NVD_API_KEY')]) {
