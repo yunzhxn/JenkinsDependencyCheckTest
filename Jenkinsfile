@@ -14,6 +14,7 @@ pipeline {
                     }
                 //   archiveArtifacts artifacts: 'dependency-check-report.xml', allowEmptyArchive: false
                 // dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+                sh 'ls -l'
                 archiveArtifacts artifacts: 'dependency-check-report.html', allowEmptyArchive: false
                 // Publish the HTML report
                 publishHTML(target: [
