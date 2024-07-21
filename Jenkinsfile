@@ -1,5 +1,5 @@
- pipeline {
-	agent any
+pipeline {
+    agent any
 	stages {
     	stage('Build') {
         	steps {
@@ -7,6 +7,7 @@
                 		sh 'npm install'
             	}
         	}
+        }
         stage('Dependency'){
             steps{
                     withCredentials([string(credentialsId: 'NVD-API-KEY', variable: 'NVD_API_KEY')]) {
@@ -20,8 +21,8 @@
                     }
                   archiveArtifacts artifacts: 'dependency-check-report.xml', allowEmptyArchive: false
                 dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
-            }
+            }   
         }
-    	}
-	}
+	    
+    }
 }
