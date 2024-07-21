@@ -12,9 +12,8 @@ pipeline {
                             --nvdApiKey \${NVD_API_KEY}
                         """, odcInstallation: 'OWASP Dependency-Check Vulnerabilities'
                     }
-                    sh 'touch dependency-check-report.html'
-                  archiveArtifacts artifacts: 'dependency-check-report.html', allowEmptyArchive: false
-                dependencyCheckPublisher pattern: '**/dependency-check-report.html'
+                  archiveArtifacts artifacts: 'dependency-check-report.xml', allowEmptyArchive: false
+                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }   
         }
 	    
